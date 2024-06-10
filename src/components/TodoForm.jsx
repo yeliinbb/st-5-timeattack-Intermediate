@@ -14,7 +14,7 @@ export default function TodoForm() {
       return alert("내용을 모두 입력해주세요.");
     }
 
-    const newTodo = { title, body, id: Date.now() };
+    const newTodo = { title, body, id: Date.now(), isDone: false };
     dispatch(addTodo(newTodo));
     setTitle("");
     setBody("");
