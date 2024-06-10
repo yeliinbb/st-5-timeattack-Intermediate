@@ -6,7 +6,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // 입력갑 상태 관리하는 함수
 const calculatorSlice = createSlice({
   name: "calculator",
-  initialState: "",
+  initialState: 0,
   reducers: {
     addNumber: (state, action) => {
       return state + action.payload;
