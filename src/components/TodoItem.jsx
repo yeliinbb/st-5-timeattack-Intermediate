@@ -1,5 +1,13 @@
 // Hint: TodoItem 컴포넌트는 props 를 받습니다.
-export default function TodoItem() {
+import { useDispatch, useSelector } from "react-redux";
+import { removeTodo } from "../redux/slices/todoSlice";
+export default function TodoItem({ isDone }) {
+  const dispatch = useDispatch();
+  const todo = useSelector((state) => state.todo);
+  console.log(todo);
+
+  const completeTodo = (prev) =>
+    prev.map((list) => (isDone ? [...list, !isDone] : list));
   return (
     <li
       style={{
@@ -16,8 +24,8 @@ export default function TodoItem() {
         <p>내용: 이거슨내용</p>
       </section>
       <section>
-        <button>완료</button>
-        <button>삭제</button>
+        <button onClick={completeTodo}>완료</button>
+        <button onClick={() => dispatch(removeTodo(todo.id))}>삭제</button>
       </section>
     </li>
   );
