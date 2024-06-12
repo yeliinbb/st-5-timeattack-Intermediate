@@ -7,19 +7,23 @@ import { useState } from "react";
 function App() {
   const result = useSelector((state) => state.calculator);
   console.log(result);
-  const [value, setValue] = useState("");
+  const [amount, setAmount] = useState("");
   const dispatch = useDispatch();
 
   return (
     <div className="App">
       <h1>덧셈과 뺄셈이 가능한 앱 만들기</h1>
       <div>
-        <input onChange={(e) => setValue(e.target.value)} value={value} />{" "}
+        <input
+          type="number"
+          onChange={(e) => setAmount(e.target.value)}
+          value={amount}
+        />{" "}
         만큼을{" "}
-        <button onClick={() => dispatch(addNumber(Number(value)))}>
+        <button onClick={() => dispatch(addNumber(Number(amount)))}>
           더할게요
         </button>
-        <button onClick={() => dispatch(minusNumber(Number(value)))}>
+        <button onClick={() => dispatch(minusNumber(Number(amount)))}>
           뺄게요
         </button>
       </div>
