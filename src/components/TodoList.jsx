@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import { useMemo } from "react";
 
 export default function TodoList({ isDone }) {
-  const todos = useSelector((state) => state.todo);
+  const todos = useSelector((state) => state.todos.todos);
   console.log(todos);
 
   // const filteredTodos = useMemo(
