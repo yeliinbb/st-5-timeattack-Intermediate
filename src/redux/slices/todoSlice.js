@@ -16,7 +16,7 @@ const todoSlice = createSlice({
     completeTodo: (state, action) => {
       const id = action.payload;
       return state.map((todo) =>
-        todo.id === id ? { ...state, isDone: !state.isDone } : todo
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
       );
     },
   },
